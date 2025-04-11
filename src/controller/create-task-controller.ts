@@ -40,7 +40,7 @@ export class CreateTaskController{
   })
     return findItem
   }
-  async findUniqueTask(id:string){
+  async FindUniqueTask(id:string){
     const findItem = await prisma.task.findUnique({
       where: {
         id,
@@ -51,7 +51,33 @@ export class CreateTaskController{
     }
     return findItem
   }
+
+  async UpdateTask(id:string, task:TaskProps){
+    const findItem = await prisma.task.findUnique({
+      where: {
+        id: id,
+      }
+    })
+    if(!findItem){
+      return new Error('nenhum item encontra')
+    }
+    const newTask = await prisma.task.update({
+      where: {
+        id,
+      },
+      data:{
+        title: task.title,
+        completed: task.completed,
+        description:task.description,
+        dueDate:task.dueDate,
+        priority:task.priority,
+      }
+    })
+    return newTask
+  }
 }
+
+
 
 
 
