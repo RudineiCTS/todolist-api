@@ -6,4 +6,6 @@ import tseslint from "typescript-eslint";
 export default defineConfig([
   { files: ["**/*.{js,mjs,cjs,ts}"], languageOptions: { globals: globals.browser } },
   tseslint.configs.recommended,
+  r
+  
 ]);

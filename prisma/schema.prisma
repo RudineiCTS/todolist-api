@@ -13,7 +13,7 @@ datasource db {
 
 model Task {
   id          String   @id
-  title       String
+  title       String   @unique
   description String
   priority    Int
   completed   Boolean
