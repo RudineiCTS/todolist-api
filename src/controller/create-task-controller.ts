@@ -59,7 +59,7 @@ export class CreateTaskController{
       }
     })
     if(!findItem){
-      return new Error('nenhum item encontra')
+      return new Error("Task não encontrada")
     }
     const newTask = await prisma.task.update({
       where: {
