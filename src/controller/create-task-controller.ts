@@ -1,5 +1,6 @@
 import { Task, type TaskProps } from "../entities/task"; 
 import prisma from "../../prisma/queries";
+import type { TaskDto } from "../utils/tranform-data-to-response";
 
 export class CreateTaskController{
   async createTask(props: TaskProps){
